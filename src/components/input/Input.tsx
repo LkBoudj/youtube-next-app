@@ -1,11 +1,19 @@
+import clsx from "clsx";
 import React from "react";
 import { IconType } from "react-icons";
 import { HiSearch } from "react-icons/hi";
-type Props = {};
+type Props = {
+  className?: string;
+};
 
-const Input = ({}: Props) => {
+const Input = ({ className }: Props) => {
   return (
-    <div className="w-full max-w-xl h-[40px] overflow-hidden flex items-center justify-between border border-slate-400 rounded-full">
+    <div
+      className={clsx(
+        `hidden lg:w-full max-w-xl h-[40px] overflow-hidden md:flex items-center justify-between border border-slate-400 rounded-full`,
+        className
+      )}
+    >
       <input
         type="search"
         className=" focus:outline-none w-full px-6 h-full"

@@ -1,18 +1,22 @@
-import { AsideStudio } from "@/components";
+"use client";
+import { AsideStudio, UploadVideo } from "@/components";
 import NavbarChannel from "@/components/NavbarChannel";
-import React from "react";
+import { useSelector } from "react-redux";
+import { uploadVideoStatuts } from "@/libs/redux/slices/settings";
 
 type Props = {
   children: React.ReactNode;
 };
 
 const Template = ({ children }: Props) => {
+  const uploadVideo = useSelector(uploadVideoStatuts);
   return (
-    <div className="py-20 h-screen ">
+    <div className=" h-screen ">
+      {uploadVideo && <UploadVideo />}
       <NavbarChannel />
-      <div className="flex w-full h-full">
+      <div className="flex  w-full h-full">
         <AsideStudio />
-        <div className="w-full">{children}</div>
+        <div className="pt-24  w-full">{children}</div>
       </div>
     </div>
   );
